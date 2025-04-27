@@ -1,0 +1,54 @@
+{
+  "sector_with_most_growth_potential": "health_care",
+  "sector_with_least_growth_potential": "consumer_discretionary",
+  "growing_sectors": [
+    "communication_services",
+    "consumer_staples",
+    "energy",
+    "financials",
+    "health_care",
+    "industrials",
+    "information_technology",
+    "real_estate",
+    "utilities"
+  ],
+  "declining_sectors": [
+    "consumer_discretionary",
+    "materials"
+  ],
+  "top_5_events": [
+    {
+      "event": "Tiny Maldives Bans Israelis From Vacation Paradise: Nearly 100 Percent Muslim Country\u2019s President Lashes Out at \u2018Atrocities\u2019 and \u2018Genocide\u2019 | The New York Sun",
+      "impact": 2.3374
+    },
+    {
+      "event": "PM: US drug probe may be entrapment | The Tribune",
+      "impact": 4.8156
+    },
+    {
+      "event": "City of Vandalia approves two development agreements at Monday Special Meeting | Vandalia Radio",
+      "impact": 3.0164
+    },
+    {
+      "event": "Democrat Cyndi Munson announces bid for Oklahoma governor against growing field of Republicans",
+      "impact": 3.9592
+    },
+    {
+      "event": "Malta Airport hails introduction of new routes ahead of the summer",
+      "impact": 6.72
+    }
+  ],
+  "all_predictions": {
+    "communication_services": 0.6649,
+    "consumer_discretionary": -1.1284,
+    "consumer_staples": 0.2536,
+    "energy": 0.1755,
+    "financials": 0.7839,
+    "health_care": 1.1624,
+    "industrials": 0.2625,
+    "information_technology": 0.2694,
+    "materials": -0.6044,
+    "real_estate": 0.667,
+    "utilities": 0.0552
+  }
+}
