@@ -45,4 +45,4 @@ Before going into Crash Guard, I had no idea what the AI agents were responsible
 
 3. Install frontend and backend dependencies
 
-4. Start the frontend and backned server
+4. Start the frontend and backend servers
