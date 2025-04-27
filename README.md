@@ -12,6 +12,7 @@ Crash Guard allows the user to run analysis on a manually entered or ai-generate
 
 - Predictions on financial sectors from the latest real life events taken from gdelt via custom-made fine-tuned NLP regressor Model.
 - Catches most impactful events to look out for, and generates reasoning to why they can impact the market.
+- AI-Generated Market Strategy / Recommendations moving forward
 - A Histogram to visually represent the spread of different financial sectors and the focus of current real-life events.
 
 Crash Guard also has an integrated financial agent chatbox which takes the user's financial query and finds the optimal agent from Fetch AI's agentverse marketplace to respond with.
