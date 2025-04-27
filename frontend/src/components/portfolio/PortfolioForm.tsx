@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import TickerInput from "@/components/portfolio/TickerInput";
+import TickerInput from "@/components/portfolio/TickerInput"; // Ensure TickerInput is updated to use a text input for tickers
 import { useResult } from "@/context/ResultContext";
 import { usePortfolio } from "@/context/PortfolioContext";
 import { useRouter } from "next/navigation";
-import AutoPortfolio from "@/components/portfolio/AutoPortfolio"; // Import the new component
+import AutoPortfolio from "@/components/portfolio/AutoPortfolio";
 
 type PortfolioEntry = {
   id: number;
@@ -81,20 +81,27 @@ const PortfolioForm: React.FC = () => {
     }
   };
 
+  const handlePortfolioGenerated = (generatedPortfolio: { ticker: string; quantity: string }[]) => {
+    // Update the entries state with the generated portfolio
+    const updatedEntries = generatedPortfolio.map((item, index) => ({
+      id: index,
+      ticker: item.ticker,
+      quantity: item.quantity,
+    }));
+    setEntries(updatedEntries);
+  };
+
   return (
-    <div className='min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-4'>
-      <div className='max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-h-[90vh] flex flex-col'>
-        <h2 className='text-2xl font-bold text-center text-gray-800 dark:text-white mb-6'>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-4">
+      <div className="max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-h-[90vh] flex flex-col">
+        <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
           Your Portfolio
         </h2>
 
-        {error && <div className='mb-4 p-3 bg-red-100 text-red-700 rounded-md'>{error}</div>}
+        {error && <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">{error}</div>}
 
-        <form
-          onSubmit={handleSubmit}
-          className='flex flex-col flex-1 overflow-hidden'
-        >
-          <div className='flex-1 overflow-y-auto mb-4'>
+        <form onSubmit={handleSubmit} className="flex flex-col flex-1 overflow-hidden">
+          <div className="flex-1 overflow-y-auto mb-4">
             {entries.map((entry, index) => (
               <TickerInput
                 key={entry.id}
@@ -109,9 +116,9 @@ const PortfolioForm: React.FC = () => {
               />
             ))}
           </div>
-          <div className='mt-auto pt-4 flex gap-4'>
+          <div className="mt-auto pt-4 flex gap-4">
             <button
-              type='submit'
+              type="submit"
               disabled={isLoading}
               className={`flex-1 py-2 px-4 ${
                 isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-green-500 hover:bg-green-600"
@@ -120,18 +127,18 @@ const PortfolioForm: React.FC = () => {
               {isLoading ? "Processing..." : "Submit Portfolio"}
             </button>
             <button
-              type='button'
+              type="button"
               onClick={handleClear}
-              className='flex-1 py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition-colors'
+              className="flex-1 py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition-colors"
             >
               Clear
             </button>
           </div>
         </form>
 
-        {/* Add the AutoPortfolio component */}
-        <div className='mt-6'>
-          <AutoPortfolio />
+        {/* Pass the handlePortfolioGenerated callback to AutoPortfolio */}
+        <div className="mt-6">
+          <AutoPortfolio onPortfolioGenerated={handlePortfolioGenerated} />
         </div>
       </div>
     </div>

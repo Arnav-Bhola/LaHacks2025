@@ -62,47 +62,6 @@ const MarketAnalysis: React.FC<ImportantEventsProp> = ({ setActiveFeature }) => 
     }
   };
 
-  const callAgent = async (
-    payloadContent: string, // The content for the payload
-    stream: boolean = false // Whether to enable streaming (default: false)
-  ): Promise<string> => {
-    const payload = {
-      model: "asi1-mini",
-      messages: [
-        {
-          role: "user",
-          content: payloadContent,
-        },
-      ],
-      temperature: 0,
-      stream, // Use the stream parameter
-    };
-
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers,
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch recommendations");
-      }
-
-      const data = await response.json(); // Parse the entire response as JSON
-      const reasoning = data.choices?.[0]?.message?.content; // Extract the recommendations content
-
-      if (reasoning) {
-        return reasoning.split("\n").slice(2).join("\n"); // Remove the first two lines and return the rest
-      } else {
-        return "No recommendations available.";
-      }
-    } catch (error) {
-      console.error("Error fetching recommendations:", error);
-      return "Failed to fetch recommendations. Please try again.";
-    }
-  };
-
   const fetchRecommendations = useCallback(async () => {
     if (!result || portfolio.length === 0) return;
 
@@ -237,14 +196,22 @@ const MarketAnalysis: React.FC<ImportantEventsProp> = ({ setActiveFeature }) => 
                 </button>
               </div>
             ) : (
-              <Image
-                src='/images/sector_histogram.png'
-                alt='Sector Distribution Histogram'
-                className='w-full h-[fit-content] p-2'
-                layout='responsive'
-                width={100}
-                height={50}
-              />
+              <div className='flex flex-col gap-6'>
+                <Image
+                  src='/images/sector_histogram.png'
+                  alt='Sector Distribution Histogram'
+                  className='w-full h-[fit-content] p-2'
+                  layout='responsive'
+                  width={100}
+                  height={50}
+                />
+                <button
+                  onClick={generateHistogram}
+                  className='mt-2 bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-lg transition-colors'
+                >
+                  Remake histogram
+                </button>
+              </div>
             )}
           </div>
         </div>

@@ -1,0 +1,64 @@
+{
+  "holdings": [
+    {
+      "ticker": "BTC",
+      "quantity": 0.5
+    },
+    {
+      "ticker": "ETH",
+      "quantity": 2
+    },
+    {
+      "ticker": "SOL",
+      "quantity": 10
+    },
+    {
+      "ticker": "SPY",
+      "quantity": 5
+    },
+    {
+      "ticker": "QQQ",
+      "quantity": 3
+    },
+    {
+      "ticker": "VTI",
+      "quantity": 5
+    },
+    {
+      "ticker": "AAPL",
+      "quantity": 10
+    },
+    {
+      "ticker": "MSFT",
+      "quantity": 8
+    },
+    {
+      "ticker": "GOOGL",
+      "quantity": 5
+    },
+    {
+      "ticker": "AMZN",
+      "quantity": 2
+    },
+    {
+      "ticker": "TSLA",
+      "quantity": 3
+    },
+    {
+      "ticker": "NVDA",
+      "quantity": 4
+    },
+    {
+      "ticker": "ARKK",
+      "quantity": 5
+    },
+    {
+      "ticker": "GLD",
+      "quantity": 3
+    },
+    {
+      "ticker": "AVAX",
+      "quantity": 15
+    }
+  ]
+}

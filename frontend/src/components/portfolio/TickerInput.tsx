@@ -21,11 +21,9 @@ const TickerInput: React.FC<TickerInputProps> = ({
   isLast,
   onAddMore,
 }) => {
-  // Sample tickers for the dropdown - you can replace with your own data source
-  const popularTickers = ["AAPL", "GOOGL", "MSFT", "AMZN", "TSLA", "META", "NVDA", "NFLX"];
-
   return (
     <div className='flex items-center gap-4 mb-4'>
+      {/* Ticker Input */}
       <div className='flex-1'>
         <label
           htmlFor={`ticker-${id}`}
@@ -33,24 +31,17 @@ const TickerInput: React.FC<TickerInputProps> = ({
         >
           Ticker
         </label>
-        <select
+        <input
           id={`ticker-${id}`}
+          type='text'
           value={ticker}
           onChange={(e) => onTickerChange(id, e.target.value)}
           className='w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100'
-        >
-          <option value=''>Select a ticker</option>
-          {popularTickers.map((ticker) => (
-            <option
-              key={ticker}
-              value={ticker}
-            >
-              {ticker}
-            </option>
-          ))}
-        </select>
+          placeholder='Enter a stock ticker (e.g., AAPL)'
+        />
       </div>
 
+      {/* Quantity Input */}
       <div className='flex-1'>
         <label
           htmlFor={`quantity-${id}`}
@@ -68,6 +59,7 @@ const TickerInput: React.FC<TickerInputProps> = ({
         />
       </div>
 
+      {/* Action Buttons */}
       <div className='flex items-center gap-2 h-full self-end'>
         {id > 0 && (
           <button
