@@ -44,6 +44,6 @@ Before going into Crash Guard, I had no idea what the AI agents were responsible
 
 2. Go to the project directory
 
-3. Install frontend and backend dependencies
+3. Install all frontend and backend dependencies
 
 4. Start the frontend and backend servers
